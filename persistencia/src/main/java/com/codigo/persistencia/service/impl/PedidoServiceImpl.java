@@ -23,19 +23,6 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public PedidoEntity guardarPedido(Long personaId, PedidoEntity pedido) {
-        PersonaEntity personaExistente = personaRepository.findById(personaId)
-                .orElseThrow(() -> new NoSuchElementException("Error Persona no existe"));
-
-        //Asignar estado iniciar y guardar datos de auditoria
-        pedido.setEstado(PedidoEntity.Estado.PENDIENTE);
-        pedido.setCreated_by("ADMIN");
-        pedido.setCreated_date(new Timestamp(System.currentTimeMillis()));
-
-        return pedidoRepository.save(pedido);
-    }
-
-    @Override
     public List<PedidoEntity> guardarPedidos(Long personaId, List<PedidoEntity> pedidos) {
         PersonaEntity personaExistente = personaRepository.findById(personaId)
                 .orElseThrow(() -> new NoSuchElementException("Error Persona no existe"));

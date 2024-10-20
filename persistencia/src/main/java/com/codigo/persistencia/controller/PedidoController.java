@@ -19,15 +19,6 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    /*
-    @PostMapping("/crearPedido/{clienteId}")
-    public ResponseEntity<PedidoEntity> crearPedido(@PathVariable Long clienteId,
-                                                          @RequestBody PedidoEntity pedido) {
-        PedidoEntity nuevosPedidos = pedidoService.guardarPedido(clienteId, pedido);
-        return new ResponseEntity<>(nuevosPedidos, HttpStatus.CREATED);
-    }
-    */
-
     @PostMapping("/crearPedido/{clienteId}")
     public ResponseEntity<List<PedidoEntity>> crearPedidos(@PathVariable Long clienteId,
                                                     @RequestBody List<PedidoEntity> pedidos) {
